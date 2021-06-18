@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Fonts/SpiderCaught.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/speech box-1.png.png" type="Texture" id=2]
+[ext_resource path="res://Assets/spider.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Button.gd" type="Script" id=4]
+
+[node name="CaughtGUI" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -48.0
+margin_top = -32.0
+margin_right = 1088.0
+margin_bottom = 632.0
+color = Color( 0.843137, 0.313726, 0.243137, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 352.0
+margin_top = 56.0
+margin_right = 990.0
+margin_bottom = 281.0
+rect_pivot_offset = Vector2( -1264, -96 )
+custom_fonts/font = ExtResource( 1 )
+text = "Time's Up!
+The spider is still
+on the loose!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spider" type="TextureRect" parent="."]
+margin_left = 304.0
+margin_top = 408.0
+margin_right = 440.0
+margin_bottom = 555.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 608.0
+margin_top = 416.0
+margin_right = 987.0
+margin_bottom = 495.0
+custom_fonts/font = ExtResource( 1 )
+text = "Play Again"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="speech box-1png" type="TextureRect" parent="."]
+margin_left = 24.0
+margin_top = 160.0
+margin_right = 320.0
+margin_bottom = 464.0
+texture = ExtResource( 2 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpiderSpeech" type="Label" parent="speech box-1png"]
+margin_left = 56.0
+margin_top = 104.0
+margin_right = 216.0
+margin_bottom = 177.0
+rect_pivot_offset = Vector2( -1264, -96 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "I Win!"
+__meta__ = {
+"_edit_use_anchors_": false
+}

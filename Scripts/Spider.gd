@@ -175,6 +175,9 @@ func _input_event(viewport, event, shape_idx):
 		
 	var shapes = get_world_2d().direct_space_state.intersect_point(get_global_mouse_position(), 32, [], 0x7FFFFFFF, true, true)
 	
+	#only process click if this is the only collider found
+	#if there is another collider, it is a collider "blocking" the spider
+	#so the spider was not clicked
 	if event is InputEventMouseButton and shapes.size() == 1:
 			if event.button_index == BUTTON_LEFT and event.pressed:
 				get_tree().change_scene("res://Scenes/SpiderCaught.tscn")

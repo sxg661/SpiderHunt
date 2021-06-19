@@ -6,4 +6,5 @@ func _ready():
 	connect("pressed", self, "_button_pressed")
 
 func _button_pressed():
-	get_tree().change_scene("res://Scenes/Level.tscn")
+	var game_controller = get_node("/root/GameController")
+	get_tree().change_scene(game_controller.get_level_scene_path())

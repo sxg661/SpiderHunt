@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/350988__cabled-mess__lose-c-04.wav-74459083ac617d0e83b4aba382f7ccf6.sample"
+
+[deps]
+
+source_file="res://sounds/350988__cabled-mess__lose-c-04.wav"
+dest_files=[ "res://.import/350988__cabled-mess__lose-c-04.wav-74459083ac617d0e83b4aba382f7ccf6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

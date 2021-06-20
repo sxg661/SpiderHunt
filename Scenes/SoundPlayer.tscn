@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/SoundPlayer.gd" type="Script" id=1]
+
+[node name="Sound" type="AudioStreamPlayer2D"]
+volume_db = 6.455
+script = ExtResource( 1 )

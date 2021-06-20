@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Fonts/SpiderCaught.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Fonts/SpiderCaughtLarge.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/spider_anim_v2/spider0.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Button.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/ChooseLevel.gd" type="Script" id=5]
+
+[node name="CaughtGUI" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -58.0
+margin_top = -62.0
+margin_right = 1073.0
+margin_bottom = 641.0
+color = Color( 0.305882, 0.682353, 0.733333, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 216.0
+margin_top = 104.0
+margin_right = 1005.0
+margin_bottom = 253.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Spider Hunt"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spider" type="TextureRect" parent="."]
+margin_left = 56.0
+margin_top = 256.0
+margin_right = 352.0
+margin_bottom = 539.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="NextLevel" type="Button" parent="."]
+margin_left = 456.0
+margin_top = 312.0
+margin_right = 944.0
+margin_bottom = 391.0
+rect_pivot_offset = Vector2( 241, 39.5 )
+custom_fonts/font = ExtResource( 1 )
+text = "Start Game"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChooseLevel" type="Button" parent="."]
+margin_left = 456.0
+margin_top = 424.0
+margin_right = 938.0
+margin_bottom = 503.0
+rect_pivot_offset = Vector2( 241, 39.5 )
+custom_fonts/font = ExtResource( 1 )
+text = "Choose Level"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="NextLevel" to="NextLevel" method="_on_NextLevel_pressed"]
+[connection signal="pressed" from="ChooseLevel" to="ChooseLevel" method="_on_ChooseLevel_pressed"]

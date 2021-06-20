@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Fonts/SpiderCaught.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Fonts/SpiderCaughtLarge.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scripts/ChooseLevel.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Button.gd" type="Script" id=4]
+
+[node name="CaughtGUI" type="Node"]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -58.0
+margin_top = -62.0
+margin_right = 1073.0
+margin_bottom = 641.0
+color = Color( 0.305882, 0.682353, 0.733333, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 123.105
+margin_top = 77.0305
+margin_right = 912.105
+margin_bottom = 226.03
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Choose Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChooseLevel" type="Button" parent="."]
+margin_left = 129.369
+margin_top = 214.237
+margin_right = 615.369
+margin_bottom = 293.237
+rect_pivot_offset = Vector2( 201.111, 39.5 )
+custom_fonts/font = ExtResource( 1 )
+text = "Level 1"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChooseLevel2" type="Button" parent="."]
+margin_left = 127.871
+margin_top = 337.098
+margin_right = 613.871
+margin_bottom = 416.098
+rect_pivot_offset = Vector2( 201.111, 39.5 )
+custom_fonts/font = ExtResource( 1 )
+text = "Level 2"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="ChooseLevel" to="." method="_choose_level_1"]
+[connection signal="pressed" from="ChooseLevel2" to="." method="_choose_level_2"]

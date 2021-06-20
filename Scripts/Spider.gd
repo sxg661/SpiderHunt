@@ -16,9 +16,13 @@ var path  = PoolVector2Array([])
 
 var direction = Vector2(0,0)
 const SPEED = 200;
+const SPEED_ANIM = 6;
 const FASTSPEED = 300;
+const FASTSPEED_ANIM = 8;
 const SUPER_FAST_SPEED = 500;
+const SUPER_FAST_SPEED_ANIM = 16;
 var speed : float
+var anim_speed : float
 
 var lastMousePos : Vector2
 
@@ -35,6 +39,7 @@ func _ready():
 	lastMousePos = get_global_mouse_position()
 	print(lastMousePos)
 	randomize()
+	$SpiderNoise.stream_paused = true
 	
 
 func rotate_to_angle():
@@ -77,7 +82,11 @@ func move_along_path(dist : float):
 	
 	
 	if path.size() == 0:
+		$Sprite.set_frames_per_second(0)
+		$SpiderNoise.stream_paused = true
 		return
+		
+	$SpiderNoise.stream_paused = false
 		
 	var start = position
 	
@@ -100,6 +109,8 @@ func move_along_path(dist : float):
 			dist = dist - dist_to_next_point
 			start = path[0]
 			path.remove(0)
+	
+	$Sprite.set_frames_per_second(anim_speed)
 			
 			
 func determine_fear(delta):
@@ -128,10 +139,13 @@ func determine_action():
 		
 	#deteremine speed
 	speed = FASTSPEED
+	anim_speed = FASTSPEED_ANIM
 	if fear >= 100:
 		speed=  SUPER_FAST_SPEED
+		anim_speed = SUPER_FAST_SPEED_ANIM
 	elif randi() % 5 == 0: 
 		speed = SPEED
+		anim_speed = SPEED_ANIM
 	
 		
 	#determine location

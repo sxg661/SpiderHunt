@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Fonts/SpiderCaughtSmall.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/game_screenie.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/SoundPlayer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sounds/350988__cabled-mess__lose-c-04.wav" type="AudioStream" id=7]
+
+[node name="CaughtGUI" type="Node"]
+
+[node name="ColorRect" type="TextureRect" parent="."]
+margin_left = 292.179
+margin_top = 116.671
+margin_right = 738.179
+margin_bottom = 404.671
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 430.115
+margin_top = 171.913
+margin_right = 1068.12
+margin_bottom = 396.913
+rect_pivot_offset = Vector2( -1264, -96 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.905882, 0.109804, 0.913725, 1 )
+text = "Spider
+Hunt"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sound" parent="." instance=ExtResource( 6 )]
+stream = ExtResource( 7 )
+play_for = 4.0

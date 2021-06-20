@@ -1,18 +1,32 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Spider.gd" type="Script" id=1]
-[ext_resource path="res://Assets/spider.png" type="Texture" id=2]
+[ext_resource path="res://Assets/spider_anim_v2/spider0.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Animator.gd" type="Script" id=3]
+[ext_resource path="res://sounds/202108__spookymodem__spider-chattering.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 13.6787, 13.0396 )
+extents = Vector2( 19.173, 19.9631 )
 
 [node name="Spider" type="KinematicBody2D"]
 input_pickable = true
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.024, 0.031 )
+position = Vector2( 0.975694, 0.345731 )
 texture = ExtResource( 2 )
+script = ExtResource( 3 )
+folder = "res://Assets/spider_anim_v2"
+image_prefix = "spider"
+image_type = "png"
+num_frames = 4
+frames_per_second = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.787453, -0.787449 )
 shape = SubResource( 1 )
+
+[node name="SpiderNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = 6.455
+autoplay = true

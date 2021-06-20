@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Fonts/SpiderCaught.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Assets/jar_vial_base.png" type="Texture" id=2]
-[ext_resource path="res://Assets/spider.png" type="Texture" id=3]
+[ext_resource path="res://Assets/jar.png" type="Texture" id=2]
+[ext_resource path="res://Assets/spider_anim_v2/spider0.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Button.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/NextLevel.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/MainMenuButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sounds/535840__evretro__8-bit-mini-win-sound-effect.wav" type="AudioStream" id=7]
+[ext_resource path="res://Scenes/SoundPlayer.tscn" type="PackedScene" id=8]
 
 [node name="CaughtGUI" type="Node"]
 
@@ -18,10 +22,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 122.267
-margin_top = 36.7195
-margin_right = 911.267
-margin_bottom = 185.719
+margin_left = 116.655
+margin_top = 45.6992
+margin_right = 905.655
+margin_bottom = 194.699
 custom_fonts/font = ExtResource( 1 )
 text = "Congratulations!
 You caught the spider!"
@@ -29,37 +33,57 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Spider" type="TextureRect" parent="."]
-margin_left = 169.62
-margin_top = 335.887
-margin_right = 292.62
-margin_bottom = 458.887
-texture = ExtResource( 3 )
-expand = true
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Jar" type="TextureRect" parent="Spider"]
-margin_left = -56.0316
-margin_top = -211.561
-margin_right = 186.968
-margin_bottom = 169.439
+[node name="Jar" type="TextureRect" parent="."]
+margin_left = 38.0595
+margin_top = 199.33
+margin_right = 339.06
+margin_bottom = 516.33
 texture = ExtResource( 2 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Spider" type="TextureRect" parent="Jar"]
+margin_left = 72.4162
+margin_top = 103.719
+margin_right = 246.416
+margin_bottom = 275.719
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Button" type="Button" parent="."]
-margin_left = 478.348
-margin_top = 335.0
-margin_right = 857.348
-margin_bottom = 414.0
+margin_left = 404.266
+margin_top = 264.285
+margin_right = 886.266
+margin_bottom = 343.285
+rect_pivot_offset = Vector2( 241, 39.5 )
 custom_fonts/font = ExtResource( 1 )
-text = "Play Again"
+text = "Repeat Level"
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="NextLevel" type="Button" parent="."]
+margin_left = 404.266
+margin_top = 359.694
+margin_right = 886.266
+margin_bottom = 438.694
+rect_pivot_offset = Vector2( 70.1101, 39.5 )
+custom_fonts/font = ExtResource( 1 )
+text = "Next Level"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenuButton" parent="." instance=ExtResource( 6 )]
+
+[node name="Sound" parent="." instance=ExtResource( 8 )]
+stream = ExtResource( 7 )
+play_for = 1.5
+[connection signal="pressed" from="NextLevel" to="NextLevel" method="_on_NextLevel_pressed"]

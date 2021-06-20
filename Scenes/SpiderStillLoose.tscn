@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Fonts/SpiderCaught.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Assets/speech box-1.png.png" type="Texture" id=2]
-[ext_resource path="res://Assets/spider.png" type="Texture" id=3]
+[ext_resource path="res://Assets/spider_anim_v2/spider0.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Button.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/MainMenuButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/SoundPlayer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sounds/350988__cabled-mess__lose-c-04.wav" type="AudioStream" id=7]
 
 [node name="CaughtGUI" type="Node"]
 
@@ -12,7 +15,7 @@ margin_left = -48.0
 margin_top = -32.0
 margin_right = 1088.0
 margin_bottom = 632.0
-color = Color( 0.843137, 0.313726, 0.243137, 1 )
+color = Color( 0.843137, 0.368627, 0.243137, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -32,10 +35,10 @@ __meta__ = {
 }
 
 [node name="Spider" type="TextureRect" parent="."]
-margin_left = 304.0
-margin_top = 408.0
-margin_right = 440.0
-margin_bottom = 555.0
+margin_left = 288.0
+margin_top = 384.0
+margin_right = 464.0
+margin_bottom = 571.0
 texture = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -44,12 +47,12 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="."]
-margin_left = 608.0
-margin_top = 416.0
-margin_right = 987.0
-margin_bottom = 495.0
+margin_left = 560.0
+margin_top = 368.0
+margin_right = 939.0
+margin_bottom = 447.0
 custom_fonts/font = ExtResource( 1 )
-text = "Play Again"
+text = "Try Again"
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -78,3 +81,13 @@ text = "I Win!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MainMenu" parent="." instance=ExtResource( 5 )]
+margin_left = 688.0
+margin_top = 472.0
+margin_right = 981.0
+margin_bottom = 551.0
+
+[node name="Sound" parent="." instance=ExtResource( 6 )]
+stream = ExtResource( 7 )
+play_for = 4.0

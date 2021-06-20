@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/243020__plasterbrain__game-start.ogg-f9c52bb86b05a3a42cad0316723a887a.oggstr"
+
+[deps]
+
+source_file="res://sounds/243020__plasterbrain__game-start.ogg"
+dest_files=[ "res://.import/243020__plasterbrain__game-start.ogg-f9c52bb86b05a3a42cad0316723a887a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
